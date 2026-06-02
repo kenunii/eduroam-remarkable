@@ -1,0 +1,5 @@
+# Local scratch files must never contain credentials or copied device configs.
+*.backup
+*.conf
+*.pem
+.env
