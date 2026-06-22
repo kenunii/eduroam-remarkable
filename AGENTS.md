@@ -67,6 +67,36 @@ The default USB SSH destination is:
 root@10.11.99.1
 ```
 
+## WLB Captive Portal
+
+`setup-wlb.sh` configures the open WLB Stuttgart SSID:
+
+```text
+wifi@wlb
+```
+
+The captive portal redirects HTTP traffic to:
+
+```text
+https://gate.wlb-stuttgart.de/
+```
+
+The form fields observed on 2026-06-22 were:
+
+```text
+tosaccept=tosaccept
+username=<Ausweisnummer>
+password:<Passwort>
+login=login
+```
+
+Do not pass WLB credentials as command-line arguments. The script reads them
+locally, URL-encodes them, transfers them over SSH stdin, writes them to a
+temporary `0600` post body on the tablet, and deletes that file immediately
+after the request. If the script is launched without an interactive terminal,
+it uses `WLB_ASKPASS`, `SSH_ASKPASS`, or `/usr/lib/git-core/git-gui--askpass`
+for local GUI prompts.
+
 For first-time access, the root password is shown on the tablet under a path
 similar to:
 

@@ -11,6 +11,12 @@ Connect the reMarkable 2 by USB, then run:
 ./setup-uni-stuttgart-student.sh
 ```
 
+For the WLB Stuttgart captive portal:
+
+```bash
+./setup-wlb.sh
+```
+
 The script prompts for your student identity and SIAM password. Use the full
 identity:
 
