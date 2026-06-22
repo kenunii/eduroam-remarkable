@@ -17,6 +17,13 @@ For the WLB Stuttgart captive portal:
 ./setup-wlb.sh
 ```
 
+To store the WLB credentials on the tablet and log in automatically in the
+future:
+
+```bash
+./install-wlb-autologin.sh
+```
+
 The script prompts for your student identity and SIAM password. Use the full
 identity:
 

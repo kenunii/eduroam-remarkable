@@ -97,6 +97,23 @@ after the request. If the script is launched without an interactive terminal,
 it uses `WLB_ASKPASS`, `SSH_ASKPASS`, or `/usr/lib/git-core/git-gui--askpass`
 for local GUI prompts.
 
+`install-wlb-autologin.sh` installs a systemd timer on the tablet. It stores an
+URL-encoded POST body in:
+
+```text
+/home/root/.config/remarkable/wlb-captive.env
+```
+
+The file must remain `0600 root:root`. The installed script checks that the
+tablet is currently connected to `wifi@wlb`, confirms the connectivity check is
+redirecting to `gate.wlb-stuttgart.de`, and only then posts the stored login
+body. The timer runs every five minutes:
+
+```text
+/etc/systemd/system/wlb-captive-login.service
+/etc/systemd/system/wlb-captive-login.timer
+```
+
 For first-time access, the root password is shown on the tablet under a path
 similar to:
 
